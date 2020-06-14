@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/upday/static/css/main.70dbbadd.chunk.css",
+    "main.js": "/upday/static/js/main.22056e2e.chunk.js",
+    "main.js.map": "/upday/static/js/main.22056e2e.chunk.js.map",
+    "runtime-main.js": "/upday/static/js/runtime-main.764f0388.js",
+    "runtime-main.js.map": "/upday/static/js/runtime-main.764f0388.js.map",
+    "static/js/2.203a1c02.chunk.js": "/upday/static/js/2.203a1c02.chunk.js",
+    "static/js/2.203a1c02.chunk.js.map": "/upday/static/js/2.203a1c02.chunk.js.map",
+    "index.html": "/upday/index.html",
+    "precache-manifest.6a48f21e0a5cd3c3dfadd95faab68e13.js": "/upday/precache-manifest.6a48f21e0a5cd3c3dfadd95faab68e13.js",
+    "service-worker.js": "/upday/service-worker.js",
+    "static/css/main.70dbbadd.chunk.css.map": "/upday/static/css/main.70dbbadd.chunk.css.map",
+    "static/js/2.203a1c02.chunk.js.LICENSE.txt": "/upday/static/js/2.203a1c02.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.764f0388.js",
+    "static/js/2.203a1c02.chunk.js",
+    "static/css/main.70dbbadd.chunk.css",
+    "static/js/main.22056e2e.chunk.js"
+  ]
+}
