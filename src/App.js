@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import { Select } from './component/Select';
 
@@ -7,7 +7,7 @@ import { Select } from './component/Select';
 const App = () => {
   const [data, setData] = useState(null);
   const [pageLangueges, setPageLanguages] = useState(null);
-  const [selectedLanguage, setSelectedLanguage] = useState('en');
+  const [selectedLanguage, setSelectedLanguage] = useState((navigator.language || navigator.userLanguage).substring(0, 2));
   const usePrevious = value => {
     const ref = useRef();
     useEffect(() => {
@@ -35,7 +35,7 @@ const App = () => {
         .then(response => response.json())
         .then(response => {
           const parsedData = response.parse;
-          
+
           setData(parsedData);
           if (!pageLangueges)
             setPageLanguages([...parsedData.langlinks.map(langLink => langLink.lang), 'en']);
@@ -44,9 +44,7 @@ const App = () => {
     }
 
 
-  }, [data,selectedLanguage]);
-
-  console.log(data)
+  }, [data, selectedLanguage]);
 
   return <div>
     <div>
@@ -61,13 +59,13 @@ const App = () => {
       data
       &&
       <div>
-          {
-            data.text
-            &&
-            data.text['*']
-            &&
-            <p dangerouslySetInnerHTML={{__html: data.text['*']}} />
-          }
+        {
+          data.text
+          &&
+          data.text['*']
+          &&
+          <p dangerouslySetInnerHTML={{ __html: data.text['*'] }} />
+        }
       </div>
     }
   </div>

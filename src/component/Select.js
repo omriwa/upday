@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react';
 
 export const Select = memo((props) => {
-    const { options, selectedOption:propSelectedOption, onOptionChange } = props;
+    const { options, selectedOption: propSelectedOption, onOptionChange } = props;
     const [selectedOption, setSelectedOption] = useState(propSelectedOption);
 
     const onChangeHandler = e => {
