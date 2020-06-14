@@ -6,9 +6,12 @@ export const Select = memo((props) => {
 
     const onChangeHandler = e => {
         const value = e.target.value;
-        
+
         setSelectedOption(value);
         onOptionChange(value);
+    }
+    const selectedStyle = {
+        backgroundColor: 'blue'
     }
 
     return <div>
@@ -20,6 +23,8 @@ export const Select = memo((props) => {
                 !options ? [] : options.map(o => <option
                     key={o}
                     value={o}
+                    defaultValue={selectedOption === o}
+                    style={selectedOption === o ? selectedStyle : null}
                 >
                     {o}
                 </option>)

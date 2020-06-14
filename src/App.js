@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import './App.css';
 import { Select } from './component/Select';
 
@@ -6,14 +6,22 @@ import { Select } from './component/Select';
 
 const App = () => {
   const [data, setData] = useState(null);
-  const [pageLangueges, setPageLangueges] = useState([]);
+  const [pageLangueges, setPageLanguages] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
-  console.log('app',selectedLanguage)
+  const usePrevious = value => {
+    const ref = useRef();
+    useEffect(() => {
+      ref.current = value;
+    });
+    return ref.current;
+  }
+  const preSelectedLanguage = usePrevious(selectedLanguage);
+
   useEffect(() => {
-    if (!data) {
+    if (!data || preSelectedLanguage != selectedLanguage) {
       var url = 'https://' + selectedLanguage + '.wikipedia.org/w/api.php';
 
-      var params = {
+      var parsParams = {
         action: 'parse',
         pageid: 25523,
         format: 'json',
@@ -21,7 +29,7 @@ const App = () => {
       };
 
       url = url + '?origin=*';
-      Object.keys(params).forEach(function (key) { url += '&' + key + '=' + params[key]; });
+      Object.keys(parsParams).forEach(function (key) { url += '&' + key + '=' + parsParams[key]; });
 
       fetch(url)
         .then(response => response.json())
@@ -29,7 +37,8 @@ const App = () => {
           const parsedData = response.parse;
           
           setData(parsedData);
-          setPageLangueges(parsedData.langlinks.map(langLink => langLink.lang));
+          if (!pageLangueges)
+            setPageLanguages([...parsedData.langlinks.map(langLink => langLink.lang), 'en']);
         })
         .catch(function (error) { console.log(error); });
     }
