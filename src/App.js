@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
-import { Select } from './component/Select';
+import { Select } from './component/select/Select';
 
 
 
