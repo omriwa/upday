@@ -13,3 +13,7 @@ npm start
 * tested by react testing library
 * all component are use by react hooks
 * did not take care of edge cases of missing content because of language
+
+* ## Contributing
+
+ - [By Omri Wallach](https://www.linkedin.com/in/omri-wallach-19989a113/)
